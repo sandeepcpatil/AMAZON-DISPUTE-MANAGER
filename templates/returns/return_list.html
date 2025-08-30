@@ -1,0 +1,19 @@
+
+{% extends "base.html" %} 
+
+{% block content %}
+<h2>Returns</h2>
+
+<button hx-get="{% url 'returns:return_form' %}" hx-target="#modal-container" hx-trigger="click">
+    New Return
+</button>
+
+
+<div id="return-list">
+
+    {% include "returns/return_table.html" %}
+</div>
+
+
+<div id="modal-container"></div>
+{% endblock %}

@@ -1,35 +1,6 @@
 from django.db import models
-
-# Create your models here.
-
-
-class Order(models.Model):
-    order_id = models.CharField(max_length=30, unique=True)
-    asin = models.CharField(max_length=20)
-    item_name = models.CharField(max_length=255)
-    customer_name = models.CharField(
-        max_length=255,
-        blank=True,
-    )
-    customer_email = models.EmailField(blank=True)
-    order_data = models.DateTimeField(null=True, blank=True)
-    order_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-
-    def __str__(self):
-        return f"{self.order_id} - {self.item_name}"
-
-
-class Return(models.Model):
-    order = models.ForeignKey(Order, related_name="returns", on_delete=models.CASCADE)
-    rma = models.CharField("Return ID", max_length=30, blank=True)
-    return_reason = models.CharField(max_length=255, blank=True)
-    tracking_id = models.CharField(max_length=100, blank=True)
-    return_item_desc = models.TextField("Return Item", blank=True)
-    received_condition = models.CharField(max_length=255, blank=True)
-    return_data = models.DateTimeField(null=True, blank=True)
-
-    def __str__(self):
-        return f"Return for ${self.order.order_id}, ({self.rma})"
+from orders.models import Order
+from returns.models import Return
 
 
 class DisputeCase(models.Model):

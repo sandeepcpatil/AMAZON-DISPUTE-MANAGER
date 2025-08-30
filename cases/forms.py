@@ -1,15 +1,5 @@
 from django import forms
-from .models import DisputeCase, Order, Return
-
-class OrderForm(forms.ModelForm):
-    class Meta:
-        model = Order
-        fields = ["order_id", "item_name", "customer_name"]
-
-class ReturnForm(forms.ModelForm):
-    class Meta:
-        model = Return
-        fields = ["order", "return_reason", "tracking_id"]
+from .models import DisputeCase
 
 class DisputeCaseForm(forms.ModelForm):
     class Meta:

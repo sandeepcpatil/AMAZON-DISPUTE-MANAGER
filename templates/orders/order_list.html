@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<h2>Orders</h2>
+
+<button hx-get="{% url 'orders:order_form' %}" hx-target="#modal-container" hx-trigger="click">
+    New Order
+</button>
+
+
+<div id="order-list">
+
+    {% include "orders/order_table.html" %}
+</div>
+
+
+<div id="modal-container"></div>
+{% endblock %}

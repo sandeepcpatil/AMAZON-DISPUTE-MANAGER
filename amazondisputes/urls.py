@@ -20,7 +20,9 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
+    path("", RedirectView.as_view(url="/cases/")),
     path("admin/", admin.site.urls),
     path("cases/", include(("cases.urls", "cases"), namespace="cases")),
-    path("", RedirectView.as_view(url="/cases/")),
+    path("orders/", include(("orders.urls", "orders"), namespace="orders")),
+    path("returns/", include(("returns.urls", "returns"), namespace="returns")),
 ]

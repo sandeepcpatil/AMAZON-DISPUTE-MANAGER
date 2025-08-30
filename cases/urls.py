@@ -18,10 +18,6 @@ app_name = "cases"
 
 urlpatterns = [
     path("", views.case_list, name="case_list"),
-    path("cases/", views.case_list, name="case_list"),
-    path("cases/create/", views.case_create, name="case_create"),
-    path("orders/", views.order_list, name="order_list"),
-    path("orders/create/", views.order_create, name="order_create"),
-    path("returns/", views.return_list, name="return_list"),
-    path("returns/create/", views.return_create, name="return_create"),
+    path("create/", views.case_create, name="case_create"),
+    path("form/", views.case_form, name="case_form"),
 ]

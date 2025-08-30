@@ -1,0 +1,16 @@
+<table border="1" cellspacing="1" cellpadding="4">
+  <tr>
+    <th>ID</th>
+    <th>Item name</th>
+    <th>Customer name</th>
+    <th>Order amount</th>
+  </tr>
+  {% for order in orders %}
+  <tr>
+    <td>{{ order.id }}</td>
+    <td>{{ order.item_name }}</td>   <!-- adjust field names to your Order model -->
+    <td>{{ order.customer_name }}</td>
+    <td>{{ order.order_amount }}</td>
+  </tr>
+  {% endfor %}
+</table>
