@@ -1,20 +1,16 @@
 <table border="1" cellspacing="1" cellpadding="4">
   <tr>
     <th>ID</th>
-    <th>Order ID</th>
-    <th>Item Name</th>
-    <th>Customer Name</th>
-    <th>Order Date</th>
-    <th>Amount</th>
+    <th>Order</th>
+    <th>Reason</th>
+    <th>Return Date</th>
   </tr>
-  {% for order in orders %}
+  {% for return in returns %}
   <tr>
-    <td>{{ order.id }}</td>
-    <td>{{ order.order_id }}</td>
-    <td>{{ order.item_name }}</td>
-    <td>{{ order.customer_name }}</td>
-    <td>{{ order.order_date }}</td>
-    <td>{{ order.amount }}</td>
+    <td>{{ return.id }}</td>
+    <td>{{ return.order_id }}</td>
+    <td>{{ return.return_reason }}</td>
+    <td>{{ return.return_data }}</td>
   </tr>
   {% endfor %}
 </table>

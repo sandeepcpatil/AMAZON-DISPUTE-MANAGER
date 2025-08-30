@@ -8,11 +8,11 @@ from .forms import ReturnForm
 
 
 # Return related methods
-def return_create(request):
-    form = ReturnForm(request.POST)
-    if form.is_valid():
-        form.save()
-    return redirect("return_list")
+def return_list(request):
+    returns = Return.objects.all()
+    if request.htmx:
+        return render(request, "returns/return_table.html", {"returns": returns})
+    return render(request, "returns/return_list.html", {"returns": returns})
 
 
 def return_form(request):
@@ -21,13 +21,13 @@ def return_form(request):
 
 
 @require_http_methods(["POST"])
-def return_list(request):
+def return_create(request):
     if request.method == "POST":
         form = ReturnForm(request.POST)
         if form.is_valid():
             form.save()
-            forms = Return.objects.all()
-            response = render(request, "returns/return_list.html", {"forms": forms})
+            returns = Return.objects.all()
+            response = render(request, "returns/return_list.html", {"returns": returns})
             response["HX-Trigger"] = "returnCreated"
             return response
         else:
