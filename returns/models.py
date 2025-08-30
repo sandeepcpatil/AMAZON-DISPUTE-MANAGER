@@ -4,6 +4,7 @@ from orders.models import Order
 
 # Create your models here.
 
+
 class Return(models.Model):
     order = models.ForeignKey(Order, related_name="returns", on_delete=models.CASCADE)
     rma = models.CharField("Return ID", max_length=30, blank=True)
@@ -14,4 +15,4 @@ class Return(models.Model):
     return_data = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"Return for ${self.order.order_id}, ({self.rma})"
+        return f"Return for {self.order.order_id}, ({self.rma})"

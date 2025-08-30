@@ -6,6 +6,11 @@
   </head>
   <body>
     <h1>Amazon Dispute Manager</h1>
+    <nav>
+      <a href="{% url 'orders:order_list' %}">Orders</a> |
+      <a href="{% url 'returns:return_list' %}">Returns</a> |
+      <a href="{% url 'cases:case_list' %}">Dispute Cases</a>
+    </nav>
     <hr />
     {% block content %}{% endblock %}
     <script>

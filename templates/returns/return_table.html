@@ -1,6 +1,8 @@
 <table border="1" cellspacing="1" cellpadding="4">
   <tr>
     <th>ID</th>
+    <th>Title</th>
+    <th>Return ID</th>
     <th>Order</th>
     <th>Reason</th>
     <th>Return Date</th>
@@ -8,6 +10,8 @@
   {% for return in returns %}
   <tr>
     <td>{{ return.id }}</td>
+    <td>{{ return.title }}</td>
+    <td>{{return.rma}}</td>
     <td>{{ return.order_id }}</td>
     <td>{{ return.return_reason }}</td>
     <td>{{ return.return_data }}</td>

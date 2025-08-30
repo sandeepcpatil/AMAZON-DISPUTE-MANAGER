@@ -1,6 +1,7 @@
 <table border="1" cellspacing="1" cellpadding="4">
   <tr>
     <th>ID</th>
+    <th>Title</th>
     <th>Reson</th>
     <th>Status</th>
     <th>order</th>
@@ -8,7 +9,8 @@
   {% for case in cases %}
   <tr>
     <td>{{ case.id }}</td>
-    <td>{{ case.reason }}</td>
+    <td>{{ case.title }}</td>
+    <td>{{ case.reason_code }}</td>
     <td>{{ case.status }}</td>
     <td>{{ case.order }}</td>
   </tr>
