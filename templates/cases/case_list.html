@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<h2>Dispute Cases</h2>
+
+<button hx-get="{% url 'cases:case_create' %}" hx-target="#modal-container" hx-trigger="click">
+    New Case
+</button>
+
+
+<div id="case-list">
+
+    {% include "cases/case_table.html" %}
+</div>
+
+
+<div id="modal-container"></div>
+{% endblock %}

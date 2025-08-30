@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon Dispute Manager</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </head>
+  <body>
+    <h1>Amazon Dispute Manager</h1>
+    <hr />
+    {% block content %}{% endblock %}
+    <script>
+      document.body.addEventListener("htmx:configRequest", (event) => {
+        const csrfToken = document.querySelector(
+          "[name=csrfmiddlewaretoken]"
+        )?.value;
+        if (csrfToken) {
+          event.detail.headers["X-CSRFToken"] = csrfToken;
+        }
+      });
+    </script>
+  </body>
+</html>

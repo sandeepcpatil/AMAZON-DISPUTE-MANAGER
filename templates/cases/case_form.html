@@ -1,0 +1,14 @@
+<div id="modal">
+  <h3>New Dispute case</h3>
+  <form
+    hx-post="{% url 'cases:create' %}"
+    hx-target="#case-list"
+    hx-swap="outerHTML"
+    method="post"
+  >
+    {% csrf_token %} 
+    {{form.as_p}}
+    <button type="submit">Save</button>
+    <button onclick="document.getElementById('modal').remove()">Close</button>
+  </form>
+</div>

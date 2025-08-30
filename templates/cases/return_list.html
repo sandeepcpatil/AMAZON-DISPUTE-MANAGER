@@ -1,0 +1,12 @@
+<h2>Returns</h2>
+<form method="post" action="{% url 'return_create' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Return</button>
+</form>
+
+<ul>
+{% for r in returns %}
+  <li>{{ r.order.order_id }} - {{ r.return_reason }} ({{ r.tracking_id }})</li>
+{% endfor %}
+</ul>

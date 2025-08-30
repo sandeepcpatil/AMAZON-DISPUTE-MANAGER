@@ -1,0 +1,16 @@
+<table border="1" cellspacing="1" cellpadding="4">
+  <tr>
+    <th>ID</th>
+    <th>Reson</th>
+    <th>Status</th>
+    <th>order</th>
+  </tr>
+  {% for case in cases %}
+  <tr>
+    <td>{{ case.id }}</td>
+    <td>{{ case.reason }}</td>
+    <td>{{ case.status }}</td>
+    <td>{{ case.order }}</td>
+  </tr>
+  {% endfor %}
+</table>
